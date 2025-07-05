@@ -1,21 +1,21 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
-import { Button } from './components/ui/button';
+
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AuthCallbackPage from './pages/AuthCallbackPage';
+import MainLayout from './Layout/MainLayout';
+import ChatPage from './pages/ChatPage';
 
 export default function App() {
   return (
     <>
-    <header>
-      <SignedOut>
-        <SignInButton>
-          <Button className="bg-emerald-700">
-            Sign In
-          </Button>
-        </SignInButton>
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
-    </header>
+     <Routes>
+     
+      <Route path="/auth-callback" element={<AuthCallbackPage/>} />
+      <Route element={<MainLayout/>}>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path ="/chat" element={<ChatPage/>}/>
+      </Route>
+     </Routes>
     </>
     
   );
