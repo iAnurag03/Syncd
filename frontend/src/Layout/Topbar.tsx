@@ -1,7 +1,7 @@
 import { SignedIn, SignedOut, SignInButton, SignOutButton} from "@clerk/clerk-react";
 import { LayoutDashboardIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "./ui/Button";
+import { Button } from "../components/ui/Button";
 
 
 const Topbar = () => {

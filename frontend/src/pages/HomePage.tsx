@@ -1,4 +1,4 @@
-import Topbar from '@/components/Topbar'
+import Topbar from '@/Layout/Topbar'
 import React from 'react'
 
 const HomePage = () => {

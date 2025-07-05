@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {useAuth} from "@clerk/clerk-react"
-import {axiosInstance} from "../src/lib/axios"
+import {axiosInstance} from "../lib/axios"
 import { Loader } from "lucide-react";
 
 
