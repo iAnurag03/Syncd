@@ -5,10 +5,9 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    image:{
+    imageUrl:{
         type:String,
-        required:true
-
+        default :"https://avatar.iran.liara.run/public/49"
     },
     clerkId:{
         type:String,

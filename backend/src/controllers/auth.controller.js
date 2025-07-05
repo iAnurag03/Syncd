@@ -8,11 +8,12 @@ export const authCallback = async (req, res, next) => {
     const user = await User.findOne({ clerkId: id });
 
     if (!user) {
-      await User.create({
+      const newUser = await User.create({
         clerkId: id,
         fullName: `${firstName} ${lastName}`,
-        imageUrl,
+        imageUrl: imageUrl || "https://ui-avatars.com/api/?name=" + encodeURIComponent(`${firstName} ${lastName}`),
       });
+      console.log("User created:", newUser);
     }
 
     res.status(200).json({ success: true });
