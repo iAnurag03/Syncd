@@ -1,13 +1,13 @@
 import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { SignedIn } from "@clerk/clerk-react";
-import { HomeIcon, Library, MessageCircleHeart, Search } from "lucide-react";
+import { Disc3, HomeIcon, MessageCircleHeart, Search } from "lucide-react";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import FeaturedSkeleton from "@/skeletons/FeaturedSkeleton";
+
 import { useMusicStore } from "@/store/useMusicStore";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import PlaylistSkeleton from "@/skeletons/FeaturedSkeleton";
+import PlaylistSkeleton from "@/components/skeletons/PlaylistSkeleton";
 
 const LeftSideBar = () => {
   const { albums, fetchAlbums, isLoading } = useMusicStore();
@@ -29,7 +29,7 @@ const LeftSideBar = () => {
             })
           )}
         >
-          <HomeIcon className="mr-2 size-5" />
+          <HomeIcon className="mr-2 size-5 text-[#e7436c]" />
           <span className="hidden md:inline">Home</span>
         </Link>
 
@@ -42,7 +42,7 @@ const LeftSideBar = () => {
             })
           )}
         >
-          <Search className="mr-2 size-5" />
+          <Search className="mr-2 size-5 text-[#e7436c]" />
           <span className="hidden md:inline">Search</span>
         </Link>
 
@@ -56,7 +56,7 @@ const LeftSideBar = () => {
               })
             )}
           >
-            <MessageCircleHeart className="mr-2 size-5" />
+            <MessageCircleHeart className="mr-2 size-5 text-[#e7436c]" />
             <span className="hidden md:inline">Message</span>
           </Link>
         </SignedIn>
@@ -65,8 +65,8 @@ const LeftSideBar = () => {
       <div className="flex-1 rounded-lg bg-zinc-900 p-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center text-white px-2">
-            <Library className="size-5 mr-2" />
-            <span className="hidden md:inline">Featured</span>
+            <Disc3 className="size-5 mr-2 text-[#e7436c]" />
+            <span className="hidden md:inline">Featured Albums</span>
           </div>
         </div>
         <ScrollArea className="h-[calc(100vh-300px)]">

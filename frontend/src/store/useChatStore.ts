@@ -1,6 +1,5 @@
 import { axiosInstance } from "@/lib/axios";
 import axios from "axios";
-import { error } from "console";
 import {create} from "zustand"
 
 interface ChatStore{

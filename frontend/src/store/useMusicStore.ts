@@ -8,10 +8,13 @@ type MusicStore = {
     isLoading:boolean;
     error:string|null;
     currAlbum: null|Album;
-    currSong: null|Song;
+    featuredSongs: Song[];
+    trendingSongs:Song[];
+
     fetchAlbums:()=>Promise<void>;
     fetchAlbumById : (id:string)=>Promise<void>;
-    fetchSongById: (id:string)=>Promise<void>;
+    fetchFeaturedSongs: () => Promise<void>;
+	fetchTrendingSongs: () => Promise<void>;
 }
 export const useMusicStore = create<MusicStore>((set)=>({
     songs:[],
@@ -19,7 +22,8 @@ export const useMusicStore = create<MusicStore>((set)=>({
     isLoading:false,
     error: null,
     currAlbum:null,
-    currSong:null,
+    featuredSongs:[],
+	trendingSongs:[],
 
     fetchAlbums: async()=>{
        set({isLoading:true,error:null});
@@ -46,19 +50,31 @@ export const useMusicStore = create<MusicStore>((set)=>({
         set({isLoading:false})
        }
     },
+    fetchFeaturedSongs: async () => {
+		set({ isLoading: true, error: null });
+		try {
+			const response = await axiosInstance.get("/songs/featured");
+			set({ featuredSongs: response.data });
+		} catch (error: any) {
+			set({ error: error.response.data.message });
+		} finally {
+			set({ isLoading: false });
+		}
+	},
 
-    fetchSongById: async(songId)=>{
-       set({isLoading:true,error:null});
-       try{
-        const response = await axiosInstance.get(`/songs/${songId}`);
-        set({currSong: response.data})
-       }
-       catch(error:any){
-        set({error:error.response.data.message})
-       }finally{
-        set({isLoading:false})
-       }
-    }
+
+	fetchTrendingSongs: async () => {
+		set({ isLoading: true, error: null });
+		try {
+			const response = await axiosInstance.get("/songs/trending");
+			set({ trendingSongs: response.data });
+		} catch (error: any) {
+			set({ error: error.response.data.message });
+		} finally {
+			set({ isLoading: false });
+		}
+	},
+    
 }
 
 ))
