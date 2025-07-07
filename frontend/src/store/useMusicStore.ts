@@ -7,7 +7,7 @@ type MusicStore = {
     albums: Album[];
     isLoading:boolean;
     error:string|null;
-    currAlbum: null|Album;
+    currentAlbum: null|Album;
     featuredSongs: Song[];
     trendingSongs:Song[];
 
@@ -21,7 +21,7 @@ export const useMusicStore = create<MusicStore>((set)=>({
     albums:[],
     isLoading:false,
     error: null,
-    currAlbum:null,
+    currentAlbum:null,
     featuredSongs:[],
 	trendingSongs:[],
 
@@ -42,7 +42,7 @@ export const useMusicStore = create<MusicStore>((set)=>({
        set({isLoading:true,error:null});
        try{
         const response = await axiosInstance.get(`/albums/${albumId}`);
-        set({currAlbum: response.data})
+        set({currentAlbum: response.data})
        }
        catch(error:any){
         set({error:error.response.data.message})
