@@ -3,6 +3,7 @@ import SectionGridSkeleton from "./skeletons/SectionGridSkeleton";
 import { Button } from "./ui/Button";
 import { Play } from "lucide-react";
 import PlayButton from "./PlayButton";
+import { Link } from "react-router-dom";
 
 type SectionGridProps={
     songs : Song[];
@@ -16,7 +17,7 @@ const SectionGrid = ({songs, isLoading}:SectionGridProps) => {
     <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl sm:text-2xl font-bold">Trending Now </h2>
-            <Button variant="link" className="text-sm text-zinc-400 hover:text-white">Show all</Button>
+           <Link to="/search"> <Button variant="link" className="text-sm text-zinc-400 hover:text-white">Show all</Button></Link>
 
         </div>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>

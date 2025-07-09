@@ -3,16 +3,18 @@ import {useAuth} from "@clerk/clerk-react"
 import {axiosInstance} from "../lib/axios"
 import { Loader } from "lucide-react";
 import { useAuthStore } from '@/store/useAuthStore';
+import { useClerkAxios } from './useClerkAxios';
 
 
-const updateApiToken = (token : string|null)=>{
-    if(token){
-        axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`
-    }
-    else delete  axiosInstance.defaults.headers.common["Authorization"]
-}
+// const updateApiToken = (token : string|null)=>{
+//     if(token){
+//         axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`
+//     }
+//     else delete  axiosInstance.defaults.headers.common["Authorization"]
+// }
 const AuthProvider = ({children}:{children: React.ReactNode})=> {
-
+    
+     useClerkAxios(); 
     const {getToken} = useAuth()
     const [loading, setLoading] = useState(true)
     const {checkAdminStatus} = useAuthStore()
@@ -20,16 +22,18 @@ const AuthProvider = ({children}:{children: React.ReactNode})=> {
     useEffect(()=>{
        const initAuth = async()=>{
         try{
-            const token = await getToken()
-
-            updateApiToken(token)
-            
-            // Check admin status after setting up token
-            if(token) {
-                await checkAdminStatus()
-            }
+//             const token = await getToken()
+//             console.log("Clerk token after login:", token);
+// 
+//             updateApiToken(token)
+//             
+//             // Check admin status after setting up token
+//             if(token) {
+//                 await checkAdminStatus()
+//             }
+            await checkAdminStatus()
         }catch(error){
-            updateApiToken(null)
+            // updateApiToken(null)
              console.log("error in auth provider", error)
         }finally{
             setLoading(false)

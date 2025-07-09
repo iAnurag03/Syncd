@@ -6,6 +6,8 @@ import MainLayout from './Layout/MainLayout';
 import ChatPage from './pages/ChatPage';
 import SearchPage from './pages/SearchPage';
 import AlbumPage from './pages/AlbumPage';
+import AdminPage from './pages/AdminPage';
+import {Toaster} from "react-hot-toast"
 
 export default function App() {
   return (
@@ -13,6 +15,7 @@ export default function App() {
      <Routes>
      
       <Route path="/auth-callback" element={<AuthCallbackPage/>} />
+      <Route path="/admin" element={<AdminPage/>} />
       <Route element={<MainLayout/>}>
         <Route path = "/" element={<HomePage/>}/>
         <Route path = "/chat" element={<ChatPage/>}/>
@@ -20,6 +23,7 @@ export default function App() {
         <Route path = "/albums/:albumId" element={<AlbumPage/>}/>
       </Route>
      </Routes>
+     <Toaster/>
     </>
     
   );

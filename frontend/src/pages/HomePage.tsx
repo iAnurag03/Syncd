@@ -26,7 +26,7 @@ const HomePage = () => {
   return (
     <div>
      <Topbar/>
-     <ScrollArea className='h-[calc(100vh-100px)]'>
+     <ScrollArea className='h-[calc(100vh-180px)]'>
          <div className='p-4 sm:p-6'>
           <h1 className='text-2xl sm:text-3xl font-bold mb-6'>Featured Songs</h1>
           <FeaturedSection songs={featuredSongs} isLoading={isLoading}/>
