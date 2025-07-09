@@ -7,10 +7,15 @@ export const authCallback = async (req, res, next) => {
 
     const user = await User.findOne({ clerkId: id });
 
+    let fullN= ""
+
+    if(lastName !==null && lastName !== "null") fullN=`${firstName} ${lastName}`
+    else fullN = `${firstName}`
+
     if (!user) {
       const newUser = await User.create({
         clerkId: id,
-        fullName: `${firstName} ${lastName}`,
+        fullName: fullN,
         imageUrl: imageUrl || "https://ui-avatars.com/api/?name=" + encodeURIComponent(`${firstName} ${lastName}`),
       });
       console.log("User created:", newUser);

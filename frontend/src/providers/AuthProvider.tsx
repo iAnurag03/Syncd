@@ -4,34 +4,26 @@ import {axiosInstance} from "../lib/axios"
 import { Loader } from "lucide-react";
 import { useAuthStore } from '@/store/useAuthStore';
 import { useClerkAxios } from './useClerkAxios';
+import { useChatStore } from '@/store/useChatStore';
 
 
-// const updateApiToken = (token : string|null)=>{
-//     if(token){
-//         axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${token}`
-//     }
-//     else delete  axiosInstance.defaults.headers.common["Authorization"]
-// }
+
 const AuthProvider = ({children}:{children: React.ReactNode})=> {
     
-     useClerkAxios(); 
-    const {getToken} = useAuth()
+     
+    const {getToken, userId} = useAuth()
     const [loading, setLoading] = useState(true)
-    const {checkAdminStatus} = useAuthStore()
+    const {checkAdminStatus} = useAuthStore();
+    const {initSocket, disconnectSocket} = useChatStore()
+
+    useClerkAxios(); 
 
     useEffect(()=>{
        const initAuth = async()=>{
         try{
-//             const token = await getToken()
-//             console.log("Clerk token after login:", token);
-// 
-//             updateApiToken(token)
-//             
-//             // Check admin status after setting up token
-//             if(token) {
-//                 await checkAdminStatus()
-//             }
-            await checkAdminStatus()
+
+            await checkAdminStatus();
+            if(userId) initSocket(userId)
         }catch(error){
             // updateApiToken(null)
              console.log("error in auth provider", error)
@@ -41,7 +33,9 @@ const AuthProvider = ({children}:{children: React.ReactNode})=> {
        };
 
        initAuth();
-    },[getToken, checkAdminStatus]);
+
+        return ()=>disconnectSocket();
+    },[getToken, checkAdminStatus, userId, initSocket, disconnectSocket]);
 
 
   if(loading) return (

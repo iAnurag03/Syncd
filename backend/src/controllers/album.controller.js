@@ -1,4 +1,6 @@
 import { Album } from "../models/album.model.js"
+import { Song } from "../models/song.model.js"
+
 export const getAllAlbums = async (req,res,next)=>{
      try{
         const albums = await Album.find();
@@ -18,7 +20,9 @@ export const getAlbumById = async (req,res,next)=>{
             return res.status(404).json({message: "Album not found"})
         }
 
+        res.status(200).json(album);
     }catch(error){
-
+        console.log(error)
+        next(error);
     }
 }
