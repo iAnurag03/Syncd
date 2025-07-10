@@ -4,7 +4,7 @@ import { useChatStore } from "@/store/useChatStore";
 import { useUser } from "@clerk/clerk-react";
 import { Send } from "lucide-react";
 import { useState } from "react";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 
 const MessageInput = () => {
 	const [newMessage, setNewMessage] = useState("");

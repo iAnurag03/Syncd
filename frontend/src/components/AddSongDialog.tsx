@@ -16,7 +16,7 @@ import { useMusicStore } from "@/store/useMusicStore";
 import { Plus, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 
 interface NewSong {
 	title: string;

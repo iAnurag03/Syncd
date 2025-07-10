@@ -1,4 +1,3 @@
-
 import {
 	Dialog,
 	DialogContent,
@@ -13,8 +12,8 @@ import { axiosInstance } from "@/lib/axios";
 import { Plus, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { Button } from "./ui/Button";
 import { useMusicStore } from "@/store/useMusicStore";
+import { Button } from "./ui/button";
 
 const AddAlbumDialog = () => {
 	const {fetchAlbums} = useMusicStore()

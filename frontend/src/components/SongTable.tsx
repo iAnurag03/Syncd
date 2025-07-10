@@ -1,6 +1,6 @@
 import { Calendar, Trash2 } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui/table";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 import type { Song } from "@/types";
 import { useMusicStore } from "@/store/useMusicStore";
 

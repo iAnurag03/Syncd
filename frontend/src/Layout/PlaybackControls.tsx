@@ -1,5 +1,5 @@
 
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { usePlayerStore } from "@/store/usePlayerStore";
 import { Pause, Play, SkipBack, SkipForward, Volume1 } from "lucide-react";

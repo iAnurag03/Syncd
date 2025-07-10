@@ -1,6 +1,6 @@
 import type { Song } from "@/types"
 import SectionGridSkeleton from "./skeletons/SectionGridSkeleton";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 import PlayButton from "./PlayButton";
 import { Link } from "react-router-dom";
 
