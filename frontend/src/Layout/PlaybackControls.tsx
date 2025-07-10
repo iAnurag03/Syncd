@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/Button";
 import { Slider } from "@/components/ui/slider";
 import { usePlayerStore } from "@/store/usePlayerStore";
-import { Pause, Play, Repeat, SkipBack, SkipForward, Volume1 } from "lucide-react";
+import { Pause, Play, SkipBack, SkipForward, Volume1 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const formatTime = (seconds: number) => {

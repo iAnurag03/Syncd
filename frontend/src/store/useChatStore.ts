@@ -3,6 +3,7 @@ import type { Message, User } from "@/types";
 
 import { create } from "zustand";
 import { io } from "socket.io-client";
+
 interface ChatStore {
   users: any[];
   isLoading: boolean;
@@ -23,7 +24,7 @@ interface ChatStore {
   setSelectedUser: (user: User | null) => void;
 }
 
-const baseUrl = "http://localhost:8000";
+const baseUrl = import.meta.env.MODE==="development"? "http://localhost:8000" : "/"
 
 const socket = io(baseUrl, {
   autoConnect: false,
@@ -66,9 +67,7 @@ export const useChatStore = create<ChatStore>((set, get) => ({
       });
 
       socket.on("activities", (activities: [string, string][]) => {
-        set((state) => ({
-          onlineUsers: new Set([...state.onlineUsers, userId]),
-        }));
+        set({ userActivities: new Map(activities) });
       });
 
       socket.on("user_connected", (userId: string) => {

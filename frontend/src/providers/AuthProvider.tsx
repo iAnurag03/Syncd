@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import {useAuth} from "@clerk/clerk-react"
-import {axiosInstance} from "../lib/axios"
 import { Loader } from "lucide-react";
 import { useAuthStore } from '@/store/useAuthStore';
 import { useClerkAxios } from './useClerkAxios';

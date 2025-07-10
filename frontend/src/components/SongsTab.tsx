@@ -1,7 +1,6 @@
-import React from 'react'
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { Music } from 'lucide-react'
-import { Button } from './ui/Button'
 import SongTable from './SongTable'
 import AddSongDialog from './AddSongDialog'
 

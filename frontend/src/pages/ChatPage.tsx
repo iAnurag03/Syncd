@@ -2,12 +2,11 @@ import ChatHeader from '@/components/ChatHeader'
 import MessageInput from '@/components/MessageInput'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import UsersList from '@/components/UsersList'
-import Topbar from '@/Layout/Topbar'
 import { useChatStore } from '@/store/useChatStore'
 import { useUser } from '@clerk/clerk-react'
 import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { AudioWaveform } from 'lucide-react'
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 
 const ChatPage = () => {
 

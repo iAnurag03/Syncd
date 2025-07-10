@@ -1,8 +1,6 @@
-import { SignOutButton } from '@clerk/clerk-react'
 import { AudioWaveform } from 'lucide-react'
-import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from './ui/Button'
+
 
 const DashBoardHeader = () => {
   return (

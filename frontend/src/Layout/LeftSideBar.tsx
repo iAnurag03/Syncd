@@ -2,7 +2,7 @@ import { buttonVariants } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { SignedIn } from "@clerk/clerk-react";
 import { Disc3, HomeIcon, MessageCircleHeart, Search } from "lucide-react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useMusicStore } from "@/store/useMusicStore";

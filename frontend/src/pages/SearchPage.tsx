@@ -2,9 +2,7 @@ import FeaturedSection from "@/components/FeaturedSection";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Topbar from "@/Layout/Topbar";
 import { useMusicStore } from "@/store/useMusicStore";
-import { Search } from "lucide-react";
-
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const SearchPage = () => {

@@ -1,4 +1,4 @@
-import { SignedIn, SignedOut, SignInButton, SignOutButton, UserButton} from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignInButton, SignOutButton} from "@clerk/clerk-react";
 import { AudioWaveform, LayoutDashboardIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button, buttonVariants } from "../components/ui/Button";
