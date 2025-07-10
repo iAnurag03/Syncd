@@ -47,7 +47,7 @@ app.use(fileUpload({
 const tempDir = path.join(process.cwd(),"tmp")
 
 cron.schedule("0 0 * * *",()=>{
-    if(fs.existsSynv(tempDir)){
+    if(fs.existsSync(tempDir)){
        fs.readdir(tempDir,(err,files)=>{
         if(err){
             console.log("error",err);

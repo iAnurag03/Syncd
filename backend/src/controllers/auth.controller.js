@@ -7,10 +7,11 @@ export const authCallback = async (req, res, next) => {
 
     const user = await User.findOne({ clerkId: id });
 
-    let fullN= ""
-
-    if(lastName !==null && lastName !== "null") fullN=`${firstName} ${lastName}`
-    else fullN = `${firstName}`
+    let fullN = firstName || "";
+    if (lastName && lastName !== "null") {
+      fullN = `${firstName} ${lastName}`;
+    }
+    fullN = fullN.trim();
 
     if (!user) {
       const newUser = await User.create({
